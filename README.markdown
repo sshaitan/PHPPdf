@@ -1,7 +1,31 @@
 Information
 ===========
 
-[![Build Status](https://secure.travis-ci.org/psliwa/PHPPdf.png?branch=master)](http://travis-ci.org/psliwa/PHPPdf)
+This fork was created to just try to realize some autohyphens mechanism that would be available for text nodes with align justify.  
+
+Это форк библиотеки с целью попробовать сделать автоматическую расстановку переносов в текстовых
+блоках с выравниванием по ширине.
+
+Результат работы библиотеки на скрине ниже.
+
+The result is on the screenshot below:
+
+![Auto-hyphenated text in PDF](https://github.com/sshaitan/PHPPdf/blob/master/examples/hyphens.png?raw=true)
+
+**Информация / Info**
+
+- Работает только в текстовых блоках с выравниванием по ширине.
+- Works only in text nodes with attribute text-align="justify".
+- Добавлены две библиотеки в зависимости: `landrok/language-detector` и `vanderlee/phpSyllable`
+- Added to libraries in composer.json: `landrok/language-detector` и `vanderlee/phpSyllable`
+- Код пока очень грязный, нужно дорабатывать, но задачу решает.
+- For now, it's very dirty hack. Use it for your own risk.
+- Языки захардожены `['ru', 'en', 'de', 'fr', 'es']` 
+
+**TODO**
+- Сделать в XML отдельное свойство text-hyphen=true|false
+- Сделать в XML отдельное свойство text-language=ru|en|es|de..
+- Вынести текущий костыль аккуратно в отдельный метод(ы)
 
 Examples
 =========
@@ -67,7 +91,7 @@ PHPPdf is available at packagist.org, so you can use composer to download this l
 *(add to require section in your composer.json file)*
 
 ```json
-    "psliwa/php-pdf": "*"
+    "littlerocket/php-pdf": "*"
 ```
 
 You should choose last stable version (or wildcard of stable version), wildcard char ("*") is only an example.
@@ -81,7 +105,7 @@ If you want to use as features as barcodes or image generation, you should add e
     "imagine/Imagine": ">=0.2.0,<0.6.0"
 
 ```
-    
+
 <a name="symfony2-bundle"></a>
 Symfony2 bundle
 ----------------
@@ -179,7 +203,7 @@ $content = $facade->render($documentXml, $stylesheetXml);
 
 header('Content-Type: application/pdf');
 echo $content;
-```    
+```
 
 <a name="structure"></a>
 Basic document structure
@@ -287,7 +311,7 @@ Example:
         </div>
     </dynamic-page>
 </pdf>
-```    
+```
 
 The Second layer inherits all attributes (simple and complex), and also those from external stylesheets.
 
@@ -428,7 +452,7 @@ Example:
     </page>
 </pdf>
 ```
-    
+
 ```php
     //php code
     use PHPPdf\DataSource\DataSource;
@@ -588,7 +612,7 @@ Example:
         <barcode type="code128" code="PHPPdf" />
     </dynamic-page>
 </pdf>
-```    
+```
 
 ```<barcode>``` tag supports the most of standard attributes and has some other attributes:
 
@@ -623,7 +647,7 @@ Example:
     </dynamic-page>
 </pdf>
 ```
-    
+
 The ```<pie-chart>``` tag has three extra attributes:
 
 * radius - radius of the chart
@@ -747,7 +771,7 @@ Example:
     </dynamic-page>
 </pdf>
 ```
-    
+
 The XML parser normalizes values of attributes, wich results ignoring new line characters.
 
 If you want to add a note with new line characters, you should use this syntax:
@@ -973,7 +997,7 @@ In order to change default the config files, you must pass to Facade constructor
     
     $facade = new PHPPdf\Core\Facade($loader);
 ```
-    
+
 If you want to change only one config file, you should use LoaderImpl::set* method:
 
 ```php
@@ -1042,7 +1066,7 @@ $facade = PHPPdf\Core\FacadeBuilder::create()
 //render method returns array of images' sources, one pdf page is generated to single image file 
 $images = $facade->render(...);
 ```
-    
+
 By default the GD library is used to render an image.
 
 But you can also use Imagick, which offers a better quality, so it is recommended that if you have the opportiunity to install Imagick on your server.
@@ -1056,7 +1080,7 @@ $builder->setEngineOptions(array(
     'quality' => 60,//int from 0 to 100
 ));
 ```
-    
+
 Supported graphic libraries are: GD (default), imagick, gmagick. PHPPdf uses the [Imagine][2] library as an interface for graphics file generation.
 
 
@@ -1086,8 +1110,8 @@ TODO - plans
 Technical requirements
 ----------------
 
-This library works with php 5.3 and up.
+This library works with php 7.0 and up.
 
-[1]: https://github.com/psliwa/PdfBundle
+[1]: https://github.com/littlerocketdev/PdfBundle
 [2]: https://github.com/avalanche123/Imagine
 [3]: http://framework.zend.com/manual/en/zend.barcode.objects.html

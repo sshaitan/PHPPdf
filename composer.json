@@ -1,6 +1,6 @@
 {
   "name": "sshaitan/phppdf",
-  "description": "Pdf and graphic files generator library for PHP. Fixed for PHP7. RU auto-hyphens support",
+  "description": "Pdf and graphic files generator library for PHP. RU auto-hyphens support",
   "keywords": [
     "PDF",
     "PHPPdf"

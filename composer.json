@@ -1,32 +1,44 @@
 {
-    "name": "psliwa/php-pdf",
-    "description": "Pdf and graphic files generator library for PHP.",
-    "keywords": ["PDF", "PHPPdf"],
-    "type": "library",
-    "license": "MIT",
-    "authors": [
-        {
-            "name":     "Piotr Śliwa",
-            "homepage": "http://ohey.pl",
-            "email":    "peter.pl7@gmail.com"
-        }
-    ],
-    "require": {
-        "zendframework/zendpdf":  "~2.0.0",
-        "zendframework/zend-cache":  "^2.0"
+  "name": "sshaitan/phppdf",
+  "description": "Pdf and graphic files generator library for PHP. Fixed for PHP7. RU auto-hyphens support",
+  "keywords": [
+    "PDF",
+    "PHPPdf"
+  ],
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Piotr Śliwa",
+      "homepage": "http://ohey.pl",
+      "email": "peter.pl7@gmail.com"
     },
-    "require-dev": {
-        "zendframework/zend-barcode": "^2.0",
-        "zendframework/zend-validator": "^2.0",
-        "imagine/Imagine": ">=0.2.0,<0.6.0",
-        "phpunit/phpunit": ">=4,<5.4.0"
-    },
-    "suggest": {
-    	"zendframework/zend-barcode":  "If you want to use barcodes",
-    	"zendframework/zend-validator": "If you want to use barcodes (required by zend-barcode)",
-    	"imagine/Imagine": "If you want to use image generating (required version: >=v0.2.6)"
-    },
-    "autoload": {
-        "psr-0": { "PHPPdf": "lib/", "Imagine": "lib/" }
+    {
+      "name": "sshaitan",
+      "email": "sshaitan@lgmail.com"
     }
+  ],
+  "require": {
+    "zendframework/zendpdf": "~2.0.0",
+    "zendframework/zend-cache": "^2.0",
+    "vanderlee/syllable": "^1.7",
+    "landrok/language-detector": "^1.3"
+  },
+  "require-dev": {
+    "zendframework/zend-barcode": "^2.0",
+    "zendframework/zend-validator": "^2.0",
+    "imagine/imagine": ">=0.2.0,<0.6.0",
+    "phpunit/phpunit": ">=4,<5.4.0"
+  },
+  "suggest": {
+    "zendframework/zend-barcode": "If you want to use barcodes",
+    "zendframework/zend-validator": "If you want to use barcodes (required by zend-barcode)",
+    "imagine/imagine": "If you want to use image generating (required version: >=v0.2.6)"
+  },
+  "autoload": {
+    "psr-0": {
+      "PHPPdf": "lib/",
+      "Imagine": "lib/"
+    }
+  }
 }
